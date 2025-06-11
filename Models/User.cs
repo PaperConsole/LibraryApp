@@ -1,11 +1,13 @@
+namespace LibraryApp.Models {
 public class User {
 
-    public int Id;
+    public int Id { get; set; }
 
-    public string Username;
+    public string Username { get; set; }
 
-    public string Email;
+    public string Email { get; set; }
 
-    public List<Book> BorrowedBooks;
+    public List<Book> BorrowedBooks { get; set; }
 
+}
 }
