@@ -13,8 +13,17 @@ namespace LibraryApp.Data
 
         }
 
-public DbSet<Book> Book { get; set;}
+        public DbSet<Book> Book { get; set; }
 
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<User>()
+        .HasMany(u => u.BorrowedBooks)
+        .WithMany(b => b.Borrowers)
+        .UsingEntity(j => j.ToTable("UserBooks")); // nazwa tabeli łączącej
+}
 
     }
 
