@@ -1,0 +1,54 @@
+{
+  "Authors": [
+    {
+      "Id": 1,
+      "Name": "J.K. Rowling"
+    },
+    {
+      "Id": 2,
+      "Name": "George Orwell"
+    }
+  ],
+  "Books": [
+    {
+      "Id": 1,
+      "Title": "Harry Potter and the Sorcerer's Stone",
+      "AuthorId": 1,
+      "PublishedYear": 1997,
+      "IsAvailable": false
+    },
+    {
+      "Id": 2,
+      "Title": "1984",
+      "AuthorId": 2,
+      "PublishedYear": 1949,
+      "IsAvailable": true
+    },
+    {
+      "Id": 3,
+      "Title": "Harry Potter and the Chamber of Secrets",
+      "AuthorId": 1,
+      "PublishedYear": 1998,
+      "IsAvailable": true
+    }
+  ],
+  "Users": [
+    {
+      "Id": 1,
+      "Username": "alice",
+      "Email": "alice@example.com",
+      "BorrowedBooks": [
+        { "Id": 1 }
+      ]
+    },
+    {
+      "Id": 2,
+      "Username": "bob",
+      "Email": "bob@example.com",
+      "BorrowedBooks": [
+        { "Id": 2 },
+        { "Id": 3 }
+      ]
+    }
+  ]
+}

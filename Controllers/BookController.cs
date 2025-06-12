@@ -19,13 +19,13 @@ namespace LibraryApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBook()
         {
-            return await _context.Book.ToListAsync();
+            return await _context.Books.ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
-            var book = await _context.Book.FindAsync(id);
+            var book = await _context.Books.FindAsync(id);
 
             if (book == null)
                 return NotFound();
@@ -36,7 +36,7 @@ namespace LibraryApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> CreateBook(Book book)
         {
-            _context.Book.Add(book);
+            _context.Books.Add(book);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
@@ -56,7 +56,7 @@ namespace LibraryApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Book.Any(e => e.Id == id))
+                if (!_context.Books.Any(e => e.Id == id))
                     return NotFound();
 
                 throw;
@@ -68,11 +68,11 @@ namespace LibraryApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
-            var book = await _context.Book.FindAsync(id);
+            var book = await _context.Books.FindAsync(id);
             if (book == null)
                 return NotFound();
 
-            _context.Book.Remove(book);
+            _context.Books.Remove(book);
             await _context.SaveChangesAsync();
 
             return NoContent();
