@@ -1,14 +1,17 @@
+
+namespace LibraryApp.Models {
 public class Book {
 
-    public int Id;
+    public int Id { get; set; }
 
-    public string Title;
+    public required string Title { get; set; }
 
-    public int AuthorId;
+    public int AuthorId { get; set; }
 
-    public int PublishedYear;
+    public int PublishedYear { get; set; }
 
-    public bool IsAvailable;
+    public bool IsAvailable { get; set; }
 
 
+}
 }
